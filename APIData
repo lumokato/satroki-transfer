@@ -1,0 +1,138 @@
+POST /api/Login 登录账号
+    Request:{
+        "userName":"hego",
+        "password":"111111",
+        "newPassword":null,
+        "email":null,
+        "nickName":null
+        }
+    Response:{"successful":true,"token":"..."}
+
+POST /api/Box/AddUserBoxLines?s=cn 添加人物
+    Request:[
+        100101,
+        100201
+        ]
+    Response:[
+        {
+            "id":2507015,
+            "userId":13197,
+            "server":"cn",
+            "unitId":100101,
+            "unitName":"日和莉",
+        },
+        {
+            ...
+        }
+        ]
+
+POST /api/Box/DeleteUserBoxLines 删除人物
+    Request:[
+        2507003,
+        2507005
+        ]
+    Response:[
+        2507003,
+        2507005
+        ]
+
+GET /api/Box/GetUserBoxResult?s=cn&mr=13&ms=4&ma=True 获取账户人物信息
+    Request:空
+    Response:{
+        "box":[
+                {
+                "id":2507288,
+                "userId":13197,
+                ...
+                }
+              ],
+        "groups":[]
+             }
+
+GET /api/Unit/GetUnitSourceData/100101 获取人物装备信息
+    Response:{
+        "unitId":100701,
+        "unitRarities":[
+            {
+                "unitId":100101,
+                "rarity":1,
+                ...
+            },
+            ],
+        "unitPromotions":[
+            {
+                "unitId":100701,
+                "promotionLevel":1,
+                "equipSlot_1":101161,
+                "equipSlot_2":101281,
+                "equipSlot_3":101431,
+                "equipSlot_4":101431,
+                "equipSlot_5":101581,
+                "equipSlot_6":101581
+            },
+            ]
+        }
+
+PUT /api/Box/EditUserBoxLine?mr=13&ms=4&ma=True 修改人物状态
+    Request:{
+        "id":2507884,
+        "subBoxId":null,
+        "userId":13197,
+        "server":"cn",
+        "unitId":100701,
+        "unitName":"\u5BAB\u5B50",
+        "trace":true,
+        "level":130,
+        "rarity":5,
+        "promotion":13,
+        "loveLevel":8,
+        "pieces":0,
+        "slot1":false,
+        "slot2":false,
+        "slot3":false,
+        "slot4":false,
+        "slot5":false,
+        "slot6":false,
+        "targetSolts":126,
+        "enableTargetSolts":false,
+        "uniqueEquipRank":0,
+        "icon":"100711",
+        "targetRarity":5,
+        "targetPromotion":13,
+        "targetLoveLevel":8,
+        "targetUniqueEquipRank":0,
+        "note":null,
+        "maxRank":null,
+        "maxSlots":null,
+        "priority":null,
+        "unitPromotion":{
+            "unitId":100701,
+            "promotionLevel":13,
+            "equipSlot_1":999999,
+            "equipSlot_2":105163,
+            "equipSlot_3":999999,
+            "equipSlot_4":105342,
+            "equipSlot_5":105583,
+            "equipSlot_6":105582
+        },
+        "isFinished":false,
+        "position":0,
+        "searchAreaWidth":125,
+        "hasUniqueEquip":false,
+        "hasRarity6":false
+        }
+    Response:同Request
+
+POST /api/Equipment/SaveUserEquipStock?s=cn 备份装备库存
+    Request:{
+        "id":0,
+        "userId":0,
+        "server":"cn",
+        "stocks":[
+            {
+                "eId":125131,
+                "stock":181
+                },
+            ...
+        ]
+    }
